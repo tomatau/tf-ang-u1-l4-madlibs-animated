@@ -1,0 +1,128 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>madlibs</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+    </head>
+    <body ng-app="">
+
+        <div class="container">
+
+            <h3>Madlib Love Letter</h3>
+
+            <section class="inputs">
+                <ul>
+                    <li>
+                        <label for="name">Your Name:</label>
+                        <input id="name" ng-model="your_name" placeholder="Harold" value="Harold" type="text" />
+                    </li>
+                    <li>
+                        <label for="sweetheart">Your Sweetheart</label>
+                        <input id="sweetheart" ng-model="sweetheart" placeholder="Mary" value="Mary" type="text" />
+                    </li>
+                    <li>
+                        <label for="noun">Noun</label>
+                        <input id="noun" ng-model="noun" placeholder="Sandwich" value="Sandwich" type="text" />
+                    </li>
+                    <li>
+                        <label for="superlative">Superlative (__est)</label>
+                        <input id="superlative" ng-model="superlative" placeholder="Fastest" value="Fastest" type="text" />
+                    </li>
+                    <li>
+                        <label for="noun2">Noun</label>
+                        <input id="noun2" ng-model="noun2" placeholder="Banana" value="Banana" type="text" />
+                    </li>
+                    <li>
+                        <label for="body_part">Body Part</label>
+                        <input id="body_part" ng-model="body_part" placeholder="Elbow" value="Elbow" type="text" />
+                    </li>
+                    <li>
+                        <label for="continuous_verb">Continuous Verb</label>
+                        <input id="continuous_verb" ng-model="continuous_verb" placeholder="Hum-diddling"  value="Hum-diddling" type="text" />
+                    </li>
+                    <li>
+                        <label for="noun3">Noun</label>
+                        <input id="noun3" ng-model="noun3" placeholder="Pizza" value="Pizza" type="text" />
+                    </li>
+                    <li>
+                        <label for="verb">Verb</label>
+                        <input id="verb" ng-model="verb" placeholder="Throw" value="Throw" type="text" />
+                    </li>
+                    <li>
+                        <label for="event">Event</label>
+                        <input id="event" ng-model="event" placeholder="Moon Landing" value="Moon Landing" type="text" />
+                    </li>
+                    <li>
+                        <label for="day">Day</label>
+                        <input id="day" ng-model="day" placeholder="Election" value="Election" type="text" />
+                    </li>
+                    <li>
+                        <label for="verb2">Verb</label>
+                        <input id="verb2" ng-model="verb2" placeholder="Jump" value="Jump" type="text" />
+                    </li>
+                    <li>
+                        <label for="verb3">Verb</label>
+                        <input id="verb3" ng-model="verb3" placeholder="Roll" value="Roll" type="text" />
+                    </li>
+                    <li>
+                        <label for="place">Place</label>
+                        <input id="place" ng-model="place" placeholder="Papa joes" value="Papa joes" type="text" />
+                    </li>
+                    <li>
+                        <label for="time_span">Time Span</label>
+                        <input id="time_span" ng-model="time_span" placeholder="5 seconds" value="5 seconds" type="text" />
+                    </li>
+                    <li>
+                        <label for="verb4">Verb</label>
+                        <input id="verb4" ng-model="verb4" placeholder="Frolic" value="Frolic" type="text" />
+                    </li>
+                    <li>
+                        <label for="adverb">Adverb</label>
+                        <input id="adverb" ng-model="adverb" placeholder="Glumly" value="Glumly" type="text" />
+                    </li>
+                </ul>
+            </section>
+
+            <section class="madlib">
+                <p>Dear <span>{{ sweetheart }}</span>,</p>
+
+                <p>It has come to my <span>{{ noun }}</span> that you are the <span>{{ superlative }}</span> girl/boy in the <span>{{ noun2 }}</span>. My <span>{{ body_part }}</span> starts <span>{{ continuous_verb }}</span> a <span>{{ noun3 }}</span> every time you speak. I would like to <span>{{ verb }}</span> if you want to go to the <span>{{ event }}</span> with me next <span>{{ day }}</span>. If you <span>{{ verb2 }}</span> please <span>{{ verb3 }}</span> me at the <span>{{ place }}</span> in <span>{{ time_span }}</span>. I <span>{{ verb4 }}</span> you and everything about you.</p>
+
+                <p><span>{{ adverb }}</span>,</p>
+                <p><span>{{ your_name }}</span></p>
+            </section>
+
+            <div class="footer">
+                <p><span class="glyphicon glyphicon-heart"></span> from Tom</p>
+            </div>
+
+        </div>
+
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/angular/angular.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js scripts/plugins.js -->
+
+        <!-- endbuild -->
+
+        <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
