@@ -23,7 +23,7 @@
 
             <section class="inputs" ng-controller="MadLibController" ng-show="show">
                 
-                <form name="inputForm" ng-submit="submit(); submitted">
+                <form name="inputForm" ng-submit="submit(); submitted = true">
                     <p>Select your sweethearts gender</p>
                     <select class="form-control" name="gender" id="gender" required ng-model="gender" ng-options="gender.title for gender in genders">
                         <option value="">---gender---</option>
