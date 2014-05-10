@@ -68,5 +68,5 @@ function ResultController($scope, $rootScope){
 }
 
 angular.module('MadLibs', [])
-    .controller('MadLibController', ['$scope', '$rootscope', MadLibController])
-    .controller('ResultController', ['$scope', '$rootscope', ResultController]);
+    .controller('MadLibController', ['$scope', '$rootScope', MadLibController])
+    .controller('ResultController', ['$scope', '$rootScope', ResultController]);
