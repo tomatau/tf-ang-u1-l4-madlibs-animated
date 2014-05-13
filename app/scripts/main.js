@@ -1,7 +1,7 @@
 function MadLibController($scope, $rootScope) {
     $scope.show = true;
     $scope.words = {
-        your_name: 'Harold',
+        name: 'Harold',
         sweetheart: 'Mary',
         noun: "Sandwich",
         superlative: "Fastest",
@@ -50,6 +50,10 @@ function MadLibController($scope, $rootScope) {
             $scope.show = false;
             $rootScope.$broadcast('ready', $scope.words, $scope.gender);
         }
+    }
+
+    $scope.capitalize = function (string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
     }
 }
 
