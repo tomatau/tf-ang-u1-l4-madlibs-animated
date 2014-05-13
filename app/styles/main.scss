@@ -3,6 +3,27 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 // bower:scss
 @import "../../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content; 
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-ms-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    } 
+}
+
+@mixin animation($time, $anim) {
+    -webkit-animation: $time $anim;
+    -moz-animation: $time $anim;
+    -o-animation: $time $anim;
+    animation: $time $anim;
+}
 
 .browsehappy {
     margin: 0.2em 0;
@@ -27,6 +48,11 @@ body {
     li {
         display: inline-block;
         width: 200px;
+
+        label {
+            text-transform: capitalize;
+        }
+
         input {
             @extend .form-control;
             @extend .input-sm;
@@ -36,9 +62,65 @@ body {
             height: 30px;
         }
 
-        .ng-enter {
-            
+        // animation
+        position: relative;
+        
+
+        &.ng-enter-stagger,
+        &.ng-leave-stagger,
+        &.ng-move-stagger {
+          -webkit-animation-delay:0.1s;
+          animation-delay:0.1s;
+          -webkit-animation-duration:0;
+          animation-duration:0;
         }
+
+        &.ng-enter {
+            opacity: 0;
+        }
+        &.ng-enter.odd {
+            @include animation(0.33s, swoosh-enter-left);
+        }
+        &.ng-enter.even {
+            @include animation(0.35s, swoosh-enter-right);
+        }
+    }
+}
+
+@include keyframes(swoosh-enter-left) {
+    from {
+        left: -400px;
+        top: -200px;
+        opacity: 0;
+        -webkit-transform: rotate(180deg);  /* Chrome, Opera 15+, Safari 3.1+  */
+        -ms-transform: rotate(180deg);  /* IE 9 */
+        transform: rotate(180deg);  /* Firefox 16+, IE 10+, Opera  */
+    }
+    to {
+        left: 0;
+        top: 0;
+        opacity: 1;
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+  */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera  */
+    }
+}
+@include keyframes(swoosh-enter-right) {
+    from {
+        right: -400px;
+        top: -200px;
+        opacity: 0;
+        -webkit-transform: rotate(-180deg);  /* Chrome, Opera 15+, Safari 3.1+  */
+        -ms-transform: rotate(-180deg);  /* IE 9 */
+        transform: rotate(-180deg);  /* Firefox 16+, IE 10+, Opera  */
+    }
+    to {
+        right: 0;
+        top: 0;
+        opacity: 1;
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+  */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera  */
     }
 }
 
@@ -79,18 +161,4 @@ body {
         padding-left: 0;
         padding-right: 0;
     }
-}
-@mixin keyframes($name) {
-    @-webkit-keyframes #{$name} {
-        @content; 
-    }
-    @-moz-keyframes #{$name} {
-        @content;
-    }
-    @-ms-keyframes #{$name} {
-        @content;
-    }
-    @keyframes #{$name} {
-        @content;
-    } 
 }

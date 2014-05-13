@@ -31,29 +31,31 @@
                     
                     <p>Please supply the following words</p>
                     <ul>
-                        <li ng-repeat="(word, example) in words">
-                            <label for="{{ word }}">{{ capitalize(word) }}:</label>
-                            <input id="{{ word }}" ng-model="words[word]" placeholder="{{ example }}" value="{{ example }}" type="text" required />
+                        <li ng-repeat="word in words" ng-class-odd="'odd'" ng-class-even="'even'">
+                            <label for="{{ word.name }}">{{ split(word.name) }}:</label>
+                            <input id="{{ word.name }}" placeholder="{{ word.word }}" value="{{ word.word }}" type="text" required />
                         </li>
                     </ul>
                     <p ng-if="submitted && inputForm.$error.required">
                         All words are required
                     </p>
 
+
                     <button type="submit" class="btn btn-success">Create Madlib</button>
+                    {{ words }}
                 </form>
             </section>
 
             <section class="madlib" ng-controller="ResultController" ng-show="show">
-                <p>Dear <span>{{ words.sweetheart }}</span>,</p>
+                <p>Dear <span>{{ get('sweetheart') }}</span>,</p>
 
-                <p>It has come to my <span>{{ words.noun }}</span> that you are the <span>{{ words.superlative }}</span>
+                <p>It has come to my <span>{{ get('noun') }}</span> that you are the <span>{{ get('superlative') }}</span>
                 <span ng-if="gender.value=='female'">girl</span>
                 <span ng-if="gender.value=='male'">boy</span>
-                in the <span>{{ words.noun2 }}</span>. My <span>{{ words.body_part }}</span> starts <span>{{ words.continuous_verb }}</span> a <span>{{ words.noun3 }}</span> every time you speak. I would like to <span>{{ words.verb }}</span> if you want to go to the <span>{{ words.event }}</span> with me next <span>{{ words.day }}</span>. If you <span>{{ words.verb2 }}</span> please <span>{{ words.verb3 }}</span> me at the <span>{{ words.place }}</span> in <span>{{ words.time_span }}</span>. I <span>{{ verb4 }}</span> you and everything about you.</p>
+                in the <span>{{ get('noun2') }}</span>. My <span>{{ get('body_part') }}</span> starts <span>{{ get('continuous_verb') }}</span> a <span>{{ get('noun3') }}</span> every time you speak. I would like to <span>{{ get('verb') }}</span> if you want to go to the <span>{{ get('event') }}</span> with me next <span>{{ get('day') }}</span>. If you <span>{{ get('verb2') }}</span> please <span>{{ get('verb3') }}</span> me at the <span>{{ get('place') }}</span> in <span>{{ get('time_span') }}</span>. I <span>{{ get('verb4') }}</span> you and everything about you.</p>
 
-                <p><span>{{ words.adverb }}</span>,</p>
-                <p><span>{{ words.name }}</span></p>
+                <p><span>{{ get('adverb') }}</span>,</p>
+                <p><span>{{ get('name') }}</span></p>
 
                 <button ng-click="reset()" class="btn btn-success">Start Over</button>
             </section>
