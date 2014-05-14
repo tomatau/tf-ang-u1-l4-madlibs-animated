@@ -64,7 +64,6 @@ body {
 
         // animation
         position: relative;
-        
 
         &.ng-enter-stagger,
         &.ng-leave-stagger,
@@ -123,6 +122,52 @@ body {
         transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera  */
     }
 }
+
+/*
+    Sections Show
+ */
+.ng-hide-add,
+.ng-hide-remove {
+    display:block!important;
+}
+
+.ng-hide-add {
+    -webkit-animation:0.5s hide;
+    animation:0.5s hide;
+    position: absolute;
+}
+
+.ng-hide-remove {
+    -webkit-animation:0.5s show;
+    animation:0.5s show;
+    position: relative;
+}
+
+@include keyframes(hide) {
+    from {
+        opacity:1;
+        top: 0;
+    }
+    to {
+        opacity:0;
+        top: 500px;
+    }
+}
+
+@include keyframes(show) {
+    from {
+        opacity:0;
+        top: 500px;
+    }
+    to {
+        opacity:1;
+        top: 0;
+    }
+}
+
+
+
+// General styles
 
 .inputs,
 .madlib {
