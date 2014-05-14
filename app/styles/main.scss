@@ -25,6 +25,26 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
     animation: $time $anim;
 }
 
+@mixin animation-delay($time) {
+    -webkit-animation-delay: $time;
+    -moz-animation-delay: $time;
+    -o-animation-delay: $time;
+    animation-delay: $time;
+}
+
+@mixin animation-duration($time) {
+    -webkit-animation-duration: $time;
+    -moz-animation-duration: $time;
+    -o-animation-duration: $time;
+    animation-duration: $time;
+}
+
+@mixin transform($rule) {
+    -webkit-transform: $rule;  /* Chrome, Opera 15+, Safari 3.1+  */
+    -ms-transform: $rule;  /* IE 9 */
+    transform: $rule;  /* Firefox 16+, IE 10+, Opera  */
+}
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -68,10 +88,8 @@ body {
         &.ng-enter-stagger,
         &.ng-leave-stagger,
         &.ng-move-stagger {
-          -webkit-animation-delay:0.1s;
-          animation-delay:0.1s;
-          -webkit-animation-duration:0;
-          animation-duration:0;
+            @include animation-delay(0.1s);
+            @include animation-duration(0);
         }
 
         &.ng-enter {
@@ -91,17 +109,13 @@ body {
         left: -400px;
         top: -200px;
         opacity: 0;
-        -webkit-transform: rotate(180deg);  /* Chrome, Opera 15+, Safari 3.1+  */
-        -ms-transform: rotate(180deg);  /* IE 9 */
-        transform: rotate(180deg);  /* Firefox 16+, IE 10+, Opera  */
+        @include transform(rotate(-360deg));
     }
     to {
         left: 0;
         top: 0;
         opacity: 1;
-        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+  */
-        -ms-transform: rotate(0deg);  /* IE 9 */
-        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera  */
+        @include transform(rotate(0deg));
     }
 }
 @include keyframes(swoosh-enter-right) {
@@ -109,17 +123,13 @@ body {
         right: -400px;
         top: -200px;
         opacity: 0;
-        -webkit-transform: rotate(-180deg);  /* Chrome, Opera 15+, Safari 3.1+  */
-        -ms-transform: rotate(-180deg);  /* IE 9 */
-        transform: rotate(-180deg);  /* Firefox 16+, IE 10+, Opera  */
+        @include transform(rotate(360deg));
     }
     to {
         right: 0;
         top: 0;
         opacity: 1;
-        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+  */
-        -ms-transform: rotate(0deg);  /* IE 9 */
-        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera  */
+        @include transform(rotate(0deg));
     }
 }
 
@@ -132,14 +142,12 @@ body {
 }
 
 .ng-hide-add {
-    -webkit-animation:0.5s hide;
-    animation:0.5s hide;
+    @include animation(0.5s, hide);
     position: absolute;
 }
 
 .ng-hide-remove {
-    -webkit-animation:0.5s show;
-    animation:0.5s show;
+    @include animation(0.5s, show);
     position: relative;
 }
 

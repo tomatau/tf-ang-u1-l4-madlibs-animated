@@ -24,16 +24,16 @@
             <section class="inputs" ng-controller="MadLibController" ng-show="show">
                 
                 <form name="inputForm" ng-submit="submit(); submitted = true">
-                    <p>Select your sweethearts gender</p>
+                    <p>Select your sweetheart's gender</p>
                     <select class="form-control" name="gender" id="gender" required ng-model="gender" ng-options="gender.title for gender in genders">
                         <option value="">---gender---</option>
                     </select>
                     
-                    <p>Please supply the following words</p>
+                    <p>Please supply the following words:</p>
                     <ul>
                         <li ng-repeat="word in words" ng-class-odd="'odd'" ng-class-even="'even'">
                             <label for="{{ word.name }}">{{ split(word.name) }}:</label>
-                            <input id="{{ word.name }}" placeholder="{{ word.word }}" value="{{ word.word }}" type="text" required />
+                            <input id="{{ word.name }}" placeholder="{{ word.example }}" value="{{ word.word }}" type="text" required />
                         </li>
                     </ul>
                     <p ng-if="submitted && inputForm.$error.required">
